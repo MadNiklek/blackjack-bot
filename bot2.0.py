@@ -7,16 +7,17 @@ updater = Updater(token='873804634:AAFdPWVQSSc00kndarzPiFryLgHUqt7E6aM', use_con
 dispatcher = updater.dispatcher
 
 def start(update, context):
-    context.bot.send_message(chat_id=update.message.chat_id, text="I'm a bot, please talk to me!")
+    context.bot.send_message(chat_id=update.message.chat_id, text=update.message.chat_id)
 
-def echo(update, context):
-    context.bot.send_message(chat_id=update.message.chat_id, text=update.message.text)
+def unknown(update, context):
+    context.bot.send_message(chat_id=update.message.chat_id, text="Sorry, I didn't understand that command.")
 
+
+unknown_handler = MessageHandler(Filters.command, unknown)
 start_handler = CommandHandler('start', start)
-echo_handler = MessageHandler(Filters.text, echo)
 
 
-dispatcher.add_handler(echo_handler)
+dispatcher.add_handler(unknown_handler)
 dispatcher.add_handler(start_handler)
 
 
