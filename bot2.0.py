@@ -115,7 +115,7 @@ def cancel(update, context):
     return ConversationHandler.END
 
 def main():
-    updater = Updater("873804634:AAFdPWVQSSc00kndarzPiFryLgHUqt7E6aM", use_context=True)
+    updater = Updater("873804634:AAFdPWVQSSc00kndarzPiFryLgHUqt7E6aM")
     dp = updater.dispatcher
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('game', game)],
