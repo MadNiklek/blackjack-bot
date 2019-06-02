@@ -1,4 +1,3 @@
-random
 telegram
 telegram.ext
 python-telegram-bot
